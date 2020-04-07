@@ -12,6 +12,7 @@
 git clone https://github.com/midmis/go-video-server.git
 
 cd go-video-server
+REM import the init_db.sql ...
 .\build_all.bat
 .\start_all.bat
 ```

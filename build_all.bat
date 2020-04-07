@@ -1,8 +1,9 @@
 @echo off
 
-set SRC_DIR=E:\Workspace\Go\src\github.com\midmis\go-video-server
-set BIN_DIR=E:\Workspace\Go\bin\video-server
-set GOBIN=%BIN_DIR%
+set SRC_DIR=%~dp0
+set WORK_DIR=%GOPATH%\bin\video-server
+set GOBIN=%WORK_DIR%
+set CURR_DIR=%cd%
 
 REM Build and install project
 cd /d %SRC_DIR%
@@ -16,8 +17,8 @@ cd ../web
 go install
 
 REM Move files into work directory
-cd /d %BIN_DIR%
+cd /d %WORK_DIR%
 mkdir templates videos
 xcopy %SRC_DIR%\templates .\templates /e /y
 
-cd %~dp0
+cd /d %CURR_DIR%

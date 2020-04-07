@@ -1,8 +1,9 @@
 @echo off
 
-set BIN_DIR=E:\Workspace\Go\bin\video-server
+set WORK_DIR=%GOPATH%\bin\video-server
+set CURR_DIR=%cd%
 
-cd %BIN_DIR%
+cd %WORK_DIR%
 start /min .\api
 start /min .\streamserver
 start /min .\scheduler
@@ -15,4 +16,4 @@ taskkill /F /IM scheduler.exe
 taskkill /F /IM streamserver.exe
 taskkill /F /IM api.exe
 
-cd %~dp0
+cd %CURR_DIR%
